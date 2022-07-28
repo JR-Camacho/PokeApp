@@ -1,0 +1,233 @@
+/* Principal y General */
+.article__main{
+    display: flex;
+    flex-direction: column;
+    background-color: #1f4068;
+    color: #fff;
+}
+
+.section{
+    margin-top: 30px;
+}
+
+.title{
+    margin: 30px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 3em;
+    text-align: center;
+    color: #21aba5;
+}
+
+.subtitle{
+    margin: 20px;
+    font-size: 2.5em;
+    text-align: center;
+    color: #17202A;
+}
+
+.sub_subtitle{
+    font-size: 2em;
+    color: #2980B9;
+    margin: 20px;
+}
+
+.icon{
+    width: 50px;
+    height: 50px;
+}
+/* Seccion principal */
+
+/* fotos */
+.fotos{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.foto{
+    width: 200px;
+    height: 200px;
+    background-color: #D6DBDF;
+    border-radius: 20px 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+
+.image{
+    width: 130px;
+}
+
+/* frases */
+.frases_container{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.frases{
+    margin: 10px;
+}
+
+.frase{
+    padding: 20px;
+    background-color: rgb(33, 47, 60, 0.5);
+    margin: 10px;
+}
+
+.btnRandom{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    margin: 20px;
+}
+
+.iconRandom{
+    color: #fff;
+}
+
+/* lenguaje / nombre */
+.textoLenguaje{
+    margin: 0 20px;
+}
+
+.nombres{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.nombre{
+    padding: 20px;
+    border-radius: 50px;
+    border: none;
+    background-color: #273746;
+    margin: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* animation: translate infinite 3s alternate;
+    animation-fill-mode: backwards; */
+}
+
+.textoNombre{
+    color: #fff;
+    text-align: center;
+}
+
+.resaltar{
+    color: #1aa37a;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+/* animacion */
+/* @keyframes translate {
+    0%{
+        box-shadow: 0px 0px 15px #5499C7;
+        background-color: #273746;
+    }
+    75%{
+        box-shadow: 0px 0px 15px #273746;
+        background-color: #5499C7;
+    }
+} */
+
+/* Seccion de rasgos */
+
+.rasgos{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.rasgo{
+    padding: 20px;
+    background-color: #34495E ;
+    margin: 20px;
+    border-radius: 20px;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;    
+}
+
+/* Seccion de Habilidades */
+
+/* skills */
+.container_skils{
+    margin: 20px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.skill{
+    width: 220px;
+    height: 50px;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #273746;
+}
+
+/* movimientos */
+.container_movimientos{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+}
+
+.movimiento{
+    height: 40px;
+    border-radius: 50px;
+    border: none;
+    margin: 20px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #A2D9CE;
+}
+
+.textoMovimiento{
+    color: #000;
+}
+
+/* botones seeAll [on / off] */
+.bntSeeAll{
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+}
+
+/* Responsive */
+
+@media screen and (max-width: 530px){
+    .title{
+        font-size: 2.2em;
+    }
+
+    .foto{
+        width: 150px;
+        height: 150px;
+        margin: 10px;
+    }
+
+    .rasgo{
+        width: 90%;
+    }
+
+    .skill{
+        width: 95%;
+    }
+}

@@ -1,0 +1,295 @@
+/* Principal y General */
+.article__main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #1f4068;
+}
+
+.title{
+    margin-top: 30px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 3em;
+    text-align: center;
+    color: #21aba5;
+}
+
+.margin{
+    margin: 10px;
+}
+
+.border{
+    border-left: 1px solid #000;
+}
+
+/* Header */
+
+header{
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
+
+/* formulario */
+.form_container{
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1f4068;
+}
+
+.form{
+    width: 60%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100px;
+    border: 2px solid #fff;
+    overflow: hidden;
+}
+
+.input{
+    width: 90%;
+    height: 40px;
+    padding-left: 10px;
+    background-color: #1f4068;
+    color: #fff;
+    border: none;
+    outline: none;
+}
+
+.input::placeholder{
+    color: #fff;
+}
+
+.btnBuscar{
+    height: 40px;
+    background-color: #1f4068;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    /* transform: scale(0.8); */
+}
+
+.icon{
+    width: 22px;
+    height: 22px;
+}
+
+/* tarjetas */
+
+.pokeTarjeta{
+    /* width: 600px;
+    height: 650px; */
+    padding: 20px;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #D6DBDF;
+    color: #0E6655;
+    border-radius: 20px;
+}
+
+.pkt{
+    width: 40%;
+}
+
+.pkt2{
+    width: 40%;
+}
+
+.image_container_parent{
+    padding: 50px;
+    background-color: #1f4068;
+    box-shadow: inset 0px 0px 25px #000;
+    border-radius: 50%;
+    border: none;
+}
+
+.image_container_son{
+    width: 120px;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1f4068;
+    border-radius: 50%;
+    box-shadow: 0px 0px 70px black;
+}
+
+.imagen{
+    width: 150px;
+    position: absolute;
+}
+
+.titulos{
+    width: 90%;
+    margin-top: 20px;
+    padding-bottom: 15px;
+    text-align: center;
+    border-bottom: 1px solid #000;
+}
+
+.nombre{
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1.4em;
+    color: black;
+}
+
+.id{
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1.3em;
+}
+
+.caracteristicas{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.caracteristica{
+    width: 100%;
+    margin: 15px;
+}
+
+.tituloCaracteristica{
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1em;
+    color: #17202A;
+}
+
+.textoCaracteristica{
+    margin: 10px;
+    font-size: 1em;
+    color: #000;
+}
+
+.caracteristica_modificacion{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.caracteristica_fisico{
+    display: flex;
+    justify-content: space-between;
+}
+
+.fisico{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.abilitys{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.textoAbility{
+    margin: 10px 30px;
+    font-weight: bold;
+    color:  #2E86C1;
+}
+
+.btnInfo{
+    width: 40px;
+    height: 40px;
+    background-color: inherit;
+    color: #000;
+    border: none;
+    cursor: pointer;
+    /* transform: scale(0.8); */
+}
+
+.iconi{
+    width: 30px;
+    height: 30px;
+}
+
+/* Pokemon */
+.pokemon{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.profile{
+    width: 290px;
+    height: 290px;
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(46, 64, 83, 0.6);
+    border-radius: 30px;
+}
+
+.img_profile{
+    width: 90%;
+}
+
+/* Responsive POKEMON */
+@media screen and (max-width: 1100px){
+    .title{
+        font-size: 2.5em;
+    }
+
+    .pokemon{
+        flex-direction: column;
+    }
+
+    .pkt{
+        width: 90%;
+    }
+
+    .container_profiles{
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    .profile{
+        width: 40%;
+        height: auto;
+    }
+}
+
+/* pokemones */
+.pokemones{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+@media screen and (max-width: 1100px){
+    .form{
+        width: 80%;
+    }
+
+    .btnBuscar{
+        margin: 15px;
+    }
+
+    .pokemones{
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .pkt2{
+        width: 90%;
+    }
+}

@@ -1,0 +1,148 @@
+<main>
+    <article class="article__main">
+        <ng-container *ngIf="pokemonData">
+            <h1 class="title">{{pokemonData.name | uppercase}}</h1>
+
+            <!-- Seccion principal -->
+            <section class="info_main section">
+                <!-- Contenerdor de fotos -->
+                <div class="fotos" *ngIf="fotosUrl">
+                    <div class="foto" *ngFor="let foto of fotosUrl">
+                        <img src="{{foto}}" alt="{{pokemonData.name | uppercase}}" class="image">
+                    </div>
+                </div>
+
+                <h3 class="sub_subtitle">QUALITIES</h3>
+                <!-- articulo de frases -->
+                <article class="frases_container">
+                    <!-- contenedor de frases -->
+                    <div class="frases">
+                        <P class="frase" *ngIf="especie">{{especie.flavor_text_entries[random].flavor_text | uppercase}}
+                            [{{especie.flavor_text_entries[random].language.name}}] -
+                            [{{especie.flavor_text_entries[random].version.name}}]</P>
+
+                        <P class="frase" *ngIf="especie">{{especie.flavor_text_entries[random2].flavor_text |
+                            uppercase}} [{{especie.flavor_text_entries[random2].language.name}}] -
+                            [{{especie.flavor_text_entries[random2].version.name}}]</P>
+
+                        <P class="frase" *ngIf="especie">{{especie.flavor_text_entries[random3].flavor_text |
+                            uppercase}} [{{especie.flavor_text_entries[random3].language.name}}] -
+                            [{{especie.flavor_text_entries[random3].version.name}}]</P>
+                    </div>
+                    <!-- Boton random -->
+                    <button class="btnRandom" (click)="getRandom()"><i class="fa-solid fa-dice iconRandom icon"></i></button>
+                </article>
+
+                <h3 class="sub_subtitle">NAME</h3>
+                <!-- Articulo de Nombre / lenguaje -->
+                <article>
+                    <p class="textoLenguaje"><span class="resaltar">{{pokemonData.name | uppercase}}'S</span> NAME IN DIFFERENT LANGUAGES</p>
+                    <!-- contenedor de nombres -->
+                    <div class="nombres" *ngIf="especie">
+                        <div class="nombre" *ngFor="let nombre of especie.names">
+                            <p class="textoNombre">{{nombre.name}} - [{{nombre.language.name | uppercase}}]</p>
+                        </div>
+                    </div>
+                </article>
+            </section>
+
+            <!-- Seccion de rasgos -->
+            <section class="traits_container section">
+                <h2 class="subtitle">TRAITS</h2>
+
+                <!-- Articulo de rasgos -->
+                <article>
+                    <!-- contenedor de rasgos -->
+                    <div class="rasgos">
+                        <!-- peso -->
+                        <div class="weight rasgo">
+                            <h3 class="sub_subtitle">WEIGHT</h3>
+                            <p class="textoRasgo">{{pokemonData.weight * 0.1 | number}} KG</p>
+                        </div>
+                        <!-- altura -->
+                        <div class="height rasgo">
+                            <h3 class="sub_subtitle">HEIGHT</h3>
+                            <p class="textoRasgo">{{pokemonData.height * 0.1 | number}} MTS</p>
+                        </div>
+                        <!-- color -->
+                        <div class="color rasgo" *ngIf="infoColor">
+                            <h3 class="sub_subtitle">COLOR</h3>
+                            <p class="textoRasgo">{{infoColor.name | uppercase}}</p>
+                        </div>
+                        <!-- generacion -->
+                        <ng-container *ngIf="especie">
+                            <div class="generacion rasgo" *ngIf="especie.generation.name">
+                                <h3 class="sub_subtitle">GENERATION</h3>
+                                <p class="textoRasgo">{{especie.generation.name | uppercase}}</p>
+                            </div>
+                        </ng-container>
+                        <!-- habitad -->
+                        <ng-container *ngIf="especie">
+                            <div class="habitat rasgo" *ngIf="especie.habitat">
+                                <h3 class="sub_subtitle">HABITAT</h3>
+                                <p class="textoRasgo">{{especie.habitat.name | uppercase}}</p>
+                            </div>
+                        </ng-container>
+                        <!-- categoria -->
+                        <ng-container *ngIf="especie">
+                            <div class="categoria rasgo" *ngIf="especie.egg_groups">
+                                <h3 class="sub_subtitle">CATEGORIAS</h3>
+                                <ul>
+                                    <li class="textoRasgo" *ngFor="let caregoria of especie.egg_groups">{{caregoria.name | uppercase}}</li>
+                                </ul>
+                            </div>
+                        </ng-container>
+                        <!-- tipo -->
+                        <div class="tipo rasgo" *ngIf="pokemonData.types">
+                            <h3 class="sub_subtitle">TIPO</h3>
+                            <ul>
+                                <li class="textoRasgo" *ngFor="let tipo of pokemonData.types">{{tipo.type.name |  uppercase}}</li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+            </section>
+
+            <!-- Seccion de Habilidades -->
+            <section class="skills_container section">
+                <h2 class="subtitle">SKILLS</h2>
+                <!-- articulo de habilidades -->
+                <article class="habilidades">
+                    <!-- habilidades -->
+                    <div class="container_skils">
+                        <div class="skill" *ngFor="let skill of pokemonData.abilities">
+                            <p class="texto_skill">{{skill.ability.name | uppercase}}</p>
+                        </div>
+                    </div>
+                    <!-- movimientos -->
+                    <div class="movimientos">
+                        <h3 class="sub_subtitle">MOVES</h3>
+
+                        <!-- container movimientos -->
+                        <div class="container_movimientos">
+                            <!-- botones seeMoves / seeMovesOff -->
+                            <button *ngIf="!seeMoves" class="bntSeeAll" (click)="seeAllMoves()"><i
+                                    class="fa-solid fa-eye iconEye icon"></i></button>
+                            <button *ngIf="seeMoves" class="bntSeeAll" (click)="seeAllMoves()"><i
+                                    class="fa-solid fa-eye-slash iconEye icon"></i></button>
+
+                            <!-- seeMovesOff -->
+                            <ng-container *ngIf="!seeMoves">
+                                <div class="movimiento" *ngFor="let move of moves">
+                                    <p class="textoMovimiento">{{move | uppercase}}</p>
+                                </div>
+                            </ng-container>
+                            <!-- seeMoves -->
+                            <ng-container *ngIf="seeMoves">
+                                <div class="movimiento" *ngFor="let move of pokemonData.moves; let i = index">
+                                    <p class="textoMovimiento">{{move.move.name | uppercase}}</p>
+                                </div>
+                            </ng-container>
+                        </div>
+                    </div>
+                </article>
+            </section>
+
+        </ng-container>
+    </article>
+</main>

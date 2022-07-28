@@ -1,0 +1,122 @@
+<!-- Cabeza -->
+<header>
+    <!-- contenedor del formulario -->
+    <div class="form_container">
+        <form action="" (ngSubmit)="getPokemon()" class="form">
+            <input type="text" placeholder="Ej.Pikachu" class="input" name="id" [(ngModel)]="id" (keyup)="getPokemon()">
+            <button type="submit" class="btnBuscar"><i class="fa-solid fa-magnifying-glass icon"></i></button>
+        </form>
+    </div>
+</header>
+
+<!-- Cuerpo -->
+<main>
+    <!-- Articulo principal -->
+    <article class="article__main">
+        <h1 class="title" *ngIf="pokemones && (id == null || id == '')">POKEMONS</h1>
+        <h1 class="title" *ngIf="pokemonData && id.length >= 1">POKEMON</h1>
+        <!-- Contenido de pokemon por busqueda-->
+        <ng-container *ngIf="pokemonData && id.length >= 1">
+            <!-- Pokemon -->
+            <article class="pokemon">
+                <!-- PokeTarjeta -->
+                <div class="pokeTarjeta pkt">
+                    <!-- Perfil-->
+                    <div class="image_container_parent"  *ngIf="pokemonData.sprites">
+                        <div class="image_container_son">
+                            <img *ngIf="pokemonData.sprites.other.dream_world.front_default" src="{{pokemonData.sprites.other.dream_world.front_default}}" alt="{{pokemonData.name | uppercase}}"
+                                class="imagen">
+                            <img *ngIf="!pokemonData.sprites.other.dream_world.front_default" src="{{pokemonData.sprites.other.home.front_default}}" alt="{{pokemonData.name | uppercase}}"
+                                class="imagen">
+                        </div>
+                    </div>
+                    <!-- titulo e id -->
+                    <div class="titulos">
+                        <p class="nombre margin">{{pokemonData.name | uppercase}}</p>
+                        <p class="id margin">{{pokemonData.id | number}}</p>
+                    </div>
+                    <!-- caracteristicas -->
+                    <div class="caracteristicas">
+                        <div class="caracteristica_exp caracteristica caracteristica_modificacion">
+                            <p class="tituloCaracteristica">BASE EXPERIENCE</p>
+                            <p class="textoCaracteristica">{{pokemonData.base_experience | number}}</p>
+                        </div>
+                        <div class="caracteristica_fisico caracteristica">
+                            <div class="fisico">
+                                <p class="tituloCaracteristica">WEIGHT</p>
+                                <p class="textoCaracteristica">{{pokemonData.weight * 0.1 | number}} KG</p>
+                            </div>
+                            <div class="fisico border">
+                                <p class="tituloCaracteristica">HEIGHT</p>
+                                <p class="textoCaracteristica">{{pokemonData.height * 0.1 | number}} MTS</p>
+                            </div>
+                        </div>
+                        <div class="caracteristica_abilities caracteristica caracteristica_modificacion">
+                            <p class="tituloCaracteristica">ABILITYS</p>
+                            <div class="abilitys">
+                                <p *ngFor="let ability of pokemonData.abilities" class="textoCaracteristica textoAbility">
+                                    {{ability.ability.name | uppercase}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Boton de mas informacion -->
+                    <button class="btnInfo" [routerLink]="['/info-poke', pokemonData.id]"><i class="fa-solid fa-circle-info iconi"></i></button>
+                </div>
+                <!-- Fotos extra -->
+                <div class="container_profiles"  *ngIf="pokemonData.sprites">
+                    <div class="profile">
+                        <img src="{{pokemonData.sprites.other.home.front_default}}" alt="{{pokemonData.name}}" class="img_profile">
+                    </div>
+                    <div class="profile">
+                        <img src="{{pokemonData.sprites.other.home.front_shiny}}" alt="{{pokemonData.name}}" class="img_profile">
+                    </div>
+                </div>
+            </article>
+        </ng-container>
+
+        <!-- Articulo de pokemones -->
+        <article class="pokemones">
+            <ng-container *ngIf="pokemones && (id == null || id == '')">
+                <div *ngFor="let poke of pokemones" class="pokeTarjeta pkt2">
+                    <div class="image_container_parent">
+                        <div class="image_container_son">
+                            <img *ngIf="poke.sprites.other.dream_world.front_default" src="{{poke.sprites.other.dream_world.front_default}}" alt="{{poke.name | uppercase}}"
+                                class="imagen">
+                            <img *ngIf="!poke.sprites.other.dream_world.front_default" src="{{poke.sprites.other.home.front_default}}" alt="{{poke.name | uppercase}}"
+                                class="imagen">
+                        </div>
+                    </div>
+                    <div class="titulos">
+                        <p class="nombre margin">{{poke.name | uppercase}}</p>
+                        <p class="id margin">{{poke.id | number}}</p>
+                    </div>
+                    <div class="caracteristicas">
+                        <div class="caracteristica_exp caracteristica caracteristica_modificacion">
+                            <p class="tituloCaracteristica">BASE EXPERIENCE</p>
+                            <p class="textoCaracteristica">{{poke.base_experience | number}}</p>
+                        </div>
+                        <div class="caracteristica_fisico caracteristica">
+                            <div class="fisico">
+                                <p class="tituloCaracteristica">WEIGHT</p>
+                                <p class="textoCaracteristica">{{poke.weight * 0.1 | number}} KG</p>
+                            </div>
+                            <div class="fisico border">
+                                <p class="tituloCaracteristica">HEIGHT</p>
+                                <p class="textoCaracteristica">{{poke.height * 0.1 | number}} MTS</p>
+                            </div>
+                        </div>
+                        <div class="caracteristica_abilities caracteristica caracteristica_modificacion">
+                            <p class="tituloCaracteristica">ABILITYS</p>
+                            <div class="abilitys">
+                                <p *ngFor="let ability of poke.abilities" class="textoCaracteristica textoAbility">
+                                    {{ability.ability.name | uppercase}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btnInfo" [routerLink]="['/info-poke', poke.id]"><i class="fa-solid fa-circle-info iconi"></i></button>
+                </div>
+            </ng-container>
+        </article>
+
+    </article>
+</main>
