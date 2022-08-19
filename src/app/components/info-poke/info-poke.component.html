@@ -86,7 +86,7 @@
                         <!-- categoria -->
                         <ng-container *ngIf="especie">
                             <div class="categoria rasgo" *ngIf="especie.egg_groups">
-                                <h3 class="sub_subtitle">CATEGORIAS</h3>
+                                <h3 class="sub_subtitle">CATEGORIES</h3>
                                 <ul>
                                     <li class="textoRasgo" *ngFor="let caregoria of especie.egg_groups">{{caregoria.name | uppercase}}</li>
                                 </ul>
@@ -94,7 +94,7 @@
                         </ng-container>
                         <!-- tipo -->
                         <div class="tipo rasgo" *ngIf="pokemonData.types">
-                            <h3 class="sub_subtitle">TIPO</h3>
+                            <h3 class="sub_subtitle">TYPES</h3>
                             <ul>
                                 <li class="textoRasgo" *ngFor="let tipo of pokemonData.types">{{tipo.type.name |  uppercase}}</li>
                             </ul>

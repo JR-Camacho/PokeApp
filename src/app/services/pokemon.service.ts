@@ -30,5 +30,4 @@ export class PokemonService {
   getColorInfo(url:string){
     return this.http.get(url);
   }
-
 }

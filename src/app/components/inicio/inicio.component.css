@@ -241,6 +241,8 @@ header{
 .img_profile{
     width: 90%;
 }
+/* Responsive General */
+
 
 /* Responsive POKEMON */
 @media screen and (max-width: 1100px){
